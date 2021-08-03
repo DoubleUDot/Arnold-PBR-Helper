@@ -128,9 +128,9 @@ class AiPBR:
         self.win = pm.window(title="Standard Surface Builder",width=450,h=300,rtf=True,sizeable=0)
         layout = pm.columnLayout()
 
-        self.matName=pm.textField(it="Material Name",w=450,h=50,fn='boldLabelFont',bgc=(.7,.7,.7))
+        self.matName=pm.textField(it="Material_Name",w=450,h=50,fn='boldLabelFont',bgc=(.7,.7,.7))
 
-        self.matName.setAnnotation(val="Material Name")
+        self.matName.setAnnotation(val="Material_Name")
                 
         pm.separator(h=10,w=450,st='doubleDash')
 
@@ -151,3 +151,4 @@ class AiPBR:
 
 if __name__== "__main__":
     AiPBR()
+
