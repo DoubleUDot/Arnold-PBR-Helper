@@ -63,14 +63,14 @@ class AiPBR:
                             if os.path.splitext(texture)[1] !=".tx":
                                 texturePath[refName]=os.path.join(self.location,texture)
 
-        placerName=NodeName+"_placer"
+        placerName=self.name+"_placer"
         placer=pm.shadingNode("place2dTexture",name=placerName+"place",asUtility=True)
 
         for key, value in texturePath.items():
             print(key,value)
             
             if value:
-                textureName=NodeName+key
+                textureName=self.name+key
                 texture=pm.shadingNode("file",name=textureName,isColorManaged=True,asTexture=True)
                 pm.connectAttr(placer+".coverage",texture+".coverage",force=True)
                 pm.connectAttr(placer+".translateFrame",texture+".translateFrame",force=True)
@@ -113,7 +113,7 @@ class AiPBR:
         for key,value in textureNode.items():
             print(key,value)
             if value:
-                textureName=NodeName+key
+                textureName=self.name+key
                 if "roughness" in key.lower() or "metalness" in key.lower() or "transmission" in key.lower():
                     
                     pm.connectAttr(value+".outValue",shader+"."+key,force=True)
